@@ -1,30 +1,23 @@
-const Jimp = require("jimp");
-const pngToIco = require("png-to-ico");
-const fs = require("fs");
+const fs = require('fs');
+const path = require('path');
+const Jimp = require('jimp');
+const pngToIco = require('png-to-ico');
 
-(async () => {
-
-  const src = "./icons/icon-48.png";   // ← HERE (folder path included)
-  const sizes = [16, 32, 48, 64, 128, 256];
-
-  const resized = [];
-
-  for (const size of sizes) {
+async function convert() {
+  try {
+    const src = path.join(__dirname, 'icons', 'icon-48.png');
     const img = await Jimp.read(src);
-    const out = `tmp-${size}.png`;
 
-    await img
-      .clone()
-      .resize(size, size)
-      .writeAsync(out);
+    // resize image to 256x256 for ico generation (optional)
+    const resized = await img.resize(256, 256).getBufferAsync(Jimp.MIME_PNG);
 
-    resized.push(out);
+    const icoBuffer = await pngToIco(resized);
+
+    fs.writeFileSync('favicon.ico', icoBuffer);
+    console.log('favicon.ico created!');
+  } catch (err) {
+    console.error(err);
   }
+}
 
-  const ico = await pngToIco(resized);
-
-  fs.writeFileSync("favicon.ico", ico);
-
-  console.log("✔ favicon.ico created successfully 🎉");
-
-})();
+convert();
