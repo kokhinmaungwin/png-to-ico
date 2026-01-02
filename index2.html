@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+‎<html lang="en">
+‎<head>
+‎  <meta charset="UTF-8" />
+‎  <meta name="viewport" content="width=device-width, initial-scale=1" />
+‎  <title>Simple ICO Generator</title>
+‎  </head>
+‎<body>
+‎  <h1>Simple Multi-Size ICO Generator</h1>
+‎<input type="file" id="fileInput" accept="image/png" />
+‎<button id="uploadBtn">Convert & Download ICO</button>
+‎
+‎<script>
+‎  document.getElementById('uploadBtn').onclick = async () => {
+‎    const fileInput = document.getElementById('fileInput');
+‎    if (!fileInput.files.length) {
+‎      alert('Select a PNG file first');
+‎      return;
+‎    }
+‎    const formData = new FormData();
+‎    formData.append('image', fileInput.files[0]);
+‎
+‎    const response = await fetch('/upload', {
+‎      method: 'POST',
+‎      body: formData
+‎    });
+‎
+‎    if (response.ok) {
+‎      const blob = await response.blob();
+‎      const url = URL.createObjectURL(blob);
+‎      const a = document.createElement('a');
+‎      a.href = url;
+‎      a.download = 'favicon.ico';
+‎      a.click();
+‎      URL.revokeObjectURL(url);
+‎    } else {
+‎      alert('Conversion failed');
+‎    }
+‎  };
+‎</script>
+‎</body>
+‎</html>
+‎
