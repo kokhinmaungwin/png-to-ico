@@ -11,7 +11,8 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "jimp": "^1.6.0",
-    "png-to-ico": "^3.0.1"
+    "jimp": "^0.16.1",
+    "png-to-ico": "^3.0.1",
+    "tinycolor2": "^1.6.0"
   }
 }

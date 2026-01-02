@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const Jimp = require('jimp').default;   
+const Jimp = require('jimp');   // .default မလိုပါ
 const pngToIco = require('png-to-ico');
 
 async function convert() {
