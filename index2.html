@@ -1,44 +1,28 @@
 <!DOCTYPE html>
-‎<html lang="en">
-‎<head>
-‎  <meta charset="UTF-8" />
-‎  <meta name="viewport" content="width=device-width, initial-scale=1" />
-‎  <title>Simple ICO Generator</title>
-‎  </head>
-‎<body>
-‎  <h1>Simple Multi-Size ICO Generator</h1>
-‎<input type="file" id="fileInput" accept="image/png" />
-‎<button id="uploadBtn">Convert & Download ICO</button>
-<script src="server.js"></script>
-‎
-‎<script>
-‎  document.getElementById('uploadBtn').onclick = async () => {
-‎    const fileInput = document.getElementById('fileInput');
-‎    if (!fileInput.files.length) {
-‎      alert('Select a PNG file first');
-‎      return;
-‎    }
-‎    const formData = new FormData();
-‎    formData.append('image', fileInput.files[0]);
-‎
-‎    const response = await fetch('/upload', {
-‎      method: 'POST',
-‎      body: formData
-‎    });
-‎
-‎    if (response.ok) {
-‎      const blob = await response.blob();
-‎      const url = URL.createObjectURL(blob);
-‎      const a = document.createElement('a');
-‎      a.href = url;
-‎      a.download = 'favicon.ico';
-‎      a.click();
-‎      URL.revokeObjectURL(url);
-‎    } else {
-‎      alert('Conversion failed');
-‎    }
-‎  };
-‎</script>
-‎</body>
-‎</html>
-‎
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ICO Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>ICO Generator</h1>
+
+    <input type="file" id="imageInput" accept="image/*">
+
+    <div id="previewBox">
+      <p>Preview</p>
+      <img id="preview" />
+    </div>
+
+    <button id="genBtn">Generate ICO</button>
+
+    <a id="downloadLink" style="display:none;">Download ICO</a>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
