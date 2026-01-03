@@ -40,7 +40,7 @@ node convert.js
 ---
 
 ## Project Structure
-
+```bash
 png-to-ico/
 ├── png/            # PNG source images
 ├── convert.js      # Main converter script
@@ -48,7 +48,7 @@ png-to-ico/
 ├── README.md
 ├── favicon.ico     # Output ICO file (generated)
 └── node_modules/
-
+```
 ---
 
 ## Notes
