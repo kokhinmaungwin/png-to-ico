@@ -53,7 +53,7 @@ png-to-ico/
 
 ## Notes
 
--`node_modules/` and temporary PNG files are ignored by `.gitignore`.
+`node_modules/` and temporary PNG files are ignored by `.gitignore`.
 Requires `Node.js` and npm installed.
 
 ---
