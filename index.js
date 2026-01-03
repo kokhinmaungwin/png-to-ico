@@ -1,58 +1,3 @@
-‎<!DOCTYPE html>
-‎<html lang="en">
-‎<head>
-‎  <meta charset="UTF-8" />
-‎  <meta name="viewport" content="width=device-width, initial-scale=1" />
-‎  <title>Simple ICO Generator</title>
-‎  <style>
-‎    body {
-‎      font-family: Arial, sans-serif;
-‎      padding: 20px;
-‎      max-width: 600px;
-‎      margin: auto;
-‎    }
-‎    #preview img {
-‎      margin: 5px;
-‎      border: 1px solid #ccc;
-‎      border-radius: 6px;
-‎    }
-‎    button {
-‎      margin-top: 15px;
-‎      padding: 10px 18px;
-‎      border-radius: 6px;
-‎      font-size: 16px;
-‎      cursor: pointer;
-‎    }
-‎    #downloadBtn {
-‎      display: none;
-‎      margin-top: 10px;
-‎    }
-‎  </style>
-‎</head>
-‎<body>
-‎  <h1>Simple Multi-Size ICO Generator</h1>
-‎
-‎  <input type="file" id="fileInput" accept="image/*" />
-‎  <br />
-‎  <label>Select sizes (Ctrl+Click for multi-select):</label><br />
-‎  <select id="sizeSelect" multiple size="6" style="width: 100px; margin-top: 5px;">
-‎    <option value="16" selected>16</option>
-‎    <option value="32" selected>32</option>
-‎    <option value="48" selected>48</option>
-‎    <option value="64">64</option>
-‎    <option value="128">128</option>
-‎    <option value="256">256</option>
-‎  </select>
-‎
-‎  <br />
-‎  <button id="generateBtn">Generate ICO</button>
-‎
-‎  <div id="preview"></div>
-‎
-‎  <button id="downloadBtn">Download ICO</button>
-‎
-‎  <script src="icoGenerator.js"></script>
-‎  <script>
 ‎    const fileInput = document.getElementById("fileInput");
 ‎    const sizeSelect = document.getElementById("sizeSelect");
 ‎    const generateBtn = document.getElementById("generateBtn");
@@ -97,7 +42,3 @@
 ‎        a.click();
 ‎      };
 ‎    };
-‎  </script>
-‎</body>
-‎</html>
-‎
